@@ -6,13 +6,14 @@ const button = document.getElementById("button");
 const list = document.getElementById("todolist");
 
 // submit function
-button.onclick = () => {
+button.addEventListener('click',() => {
     if(task.value){
+        console.log(theList);
     theList.push(task.value);
     task.value = "";
     display();
     }
-}
+})
 
 // display list function
 function display(){
@@ -26,8 +27,10 @@ function display(){
 // edit task function
 function edit(index) {
     var newTask = prompt("Please insert your new value");
-    theList.splice(index, 1, newTask);
-    display();
+    if(newTask){
+        theList.splice(index, 1, newTask);
+        display();
+    }
 }
 
 //remove task function
